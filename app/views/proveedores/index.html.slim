@@ -1,33 +1,48 @@
-h1 Listing proveedores
+.row
+  .col-sm-8
+    h1
+      i.fa.fa-building
+      |  Proveedores
+  .col-sm-4
+    = link_to 'Crear Proveedor', new_proveedor_path, class: 'btn btn-primary crear-proveedor'
+.row
+  - @proveedores.each do |proveedor|
+    .col-sm-4
+      .proveedores.well
+        p = proveedor.nombre
+        p
+          i.fa.fa-building
+          |  
+          - if proveedor.razon_social.present?
+            = proveedor.razon_social
+          - else
+            'No ha ingresado Razon Social
+            
+        p
+          i.fa.fa-home
+          |  
+          - if proveedor.direccion.present?  
+            = proveedor.direccion
+          - else
+            'No ha ingresado Direccion
+        p
+          i.fa.fa-phone
+          |  
+          - if proveedor.telefono.present?  
+            = proveedor.telefono
+          - else
+            'No ha ingresado Telefono
+        p
+          i.fa.fa-envelope
+          |  
+          - if proveedor.email.present?  
+            = proveedor.email
+          - else
+            'No ha ingresado E-Mail
 
-table
-  thead
-    tr
-      th Nombre
-      th Razon social
-      th Rut
-      th Direccion
-      th Telefono
-      th Email
-      th Url
-      th
-      th
-      th
+        = link_to proveedor, class: 'btn btn-default' do
+          i.fa.fa-eye
+          |  ver
 
-  tbody
-    - @proveedores.each do |proveedor|
-      tr
-        td = proveedor.nombre
-        td = proveedor.razon_social
-        td = proveedor.rut
-        td = proveedor.direccion
-        td = proveedor.telefono
-        td = proveedor.email
-        td = proveedor.url
-        td = link_to 'Show', proveedor
-        td = link_to 'Edit', edit_proveedor_path(proveedor)
-        td = link_to 'Destroy', proveedor, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Proveedor', new_proveedor_path
+        = link_to 'Editar', edit_proveedor_path(proveedor)
+        = link_to 'Eliminar', proveedor, data: {:confirm => 'Are you sure?'}, :method => :delete

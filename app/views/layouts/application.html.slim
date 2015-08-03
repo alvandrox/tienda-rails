@@ -4,7 +4,10 @@ html
     title
       | TiendaRails
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    
     = csrf_meta_tags
   body
-    = yield
+    .container
+      = yield
+      
+    = javascript_include_tag 'application'
