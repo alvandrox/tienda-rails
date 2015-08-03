@@ -1,0 +1,33 @@
+h1 Listing proveedores
+
+table
+  thead
+    tr
+      th Nombre
+      th Razon social
+      th Rut
+      th Direccion
+      th Telefono
+      th Email
+      th Url
+      th
+      th
+      th
+
+  tbody
+    - @proveedores.each do |proveedor|
+      tr
+        td = proveedor.nombre
+        td = proveedor.razon_social
+        td = proveedor.rut
+        td = proveedor.direccion
+        td = proveedor.telefono
+        td = proveedor.email
+        td = proveedor.url
+        td = link_to 'Show', proveedor
+        td = link_to 'Edit', edit_proveedor_path(proveedor)
+        td = link_to 'Destroy', proveedor, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Proveedor', new_proveedor_path

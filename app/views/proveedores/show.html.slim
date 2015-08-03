@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Nombre:
+  = @proveedor.nombre
+p
+  strong Razon social:
+  = @proveedor.razon_social
+p
+  strong Rut:
+  = @proveedor.rut
+p
+  strong Direccion:
+  = @proveedor.direccion
+p
+  strong Telefono:
+  = @proveedor.telefono
+p
+  strong Email:
+  = @proveedor.email
+p
+  strong Url:
+  = @proveedor.url
+
+= link_to 'Edit', edit_proveedor_path(@proveedor)
+'|
+= link_to 'Back', proveedores_path

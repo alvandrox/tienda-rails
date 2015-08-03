@@ -20,6 +20,9 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'autoprefixer-rails'
 gem 'puma'
 gem 'devise'
+gem 'slim'
+gem 'slim-rails'
