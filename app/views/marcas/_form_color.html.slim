@@ -1,0 +1,7 @@
+= form_for [@marca, Color.new], :html => {class: 'form-inline'}  do |f|
+  .form-group
+    = f.text_field :nombre, class: 'form-control', placeholder: 'Ingrese nombre de la Color y presione Enter'
+  .form-group
+    = f.color_field :codigo, class: 'form-control color-form'
+    
+  = f.submit 'Agregar', class: 'btn'

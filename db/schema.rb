@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803182635) do
+ActiveRecord::Schema.define(version: 20150804205014) do
+
+  create_table "categorias", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colores", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "codigo"
+    t.integer  "marca_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "colores", ["marca_id"], name: "index_colores_on_marca_id"
+
+  create_table "marcas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "proveedor_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "marcas", ["proveedor_id"], name: "index_marcas_on_proveedor_id"
+
+  create_table "productos", force: :cascade do |t|
+    t.string   "codigo"
+    t.string   "descripcion"
+    t.integer  "marca_id"
+    t.integer  "categoria_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "productos", ["categoria_id"], name: "index_productos_on_categoria_id"
+  add_index "productos", ["marca_id"], name: "index_productos_on_marca_id"
 
   create_table "proveedores", force: :cascade do |t|
     t.string   "nombre"

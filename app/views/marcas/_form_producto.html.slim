@@ -1,0 +1,14 @@
+= form_for [@marca, Producto.new], :html => {class: 'form-inline'} do |f|
+  .form-group
+    = f.text_field :codigo, class: 'form-control', placeholder: 'Ingrese codigo'
+  .form-group
+    = f.text_field :descripcion, class: 'form-control color-form', placeholder: 'Ingrese Descripcion'
+    
+  select.form-control
+    option 1
+    option 2
+    option 3
+    option 4
+    option 5
+    
+  = f.submit 'Agregar', class: 'btn'

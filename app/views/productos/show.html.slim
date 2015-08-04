@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Codigo:
+  = @producto.codigo
+p
+  strong Descripcion:
+  = @producto.descripcion
+p
+  strong Marca:
+  = @producto.marca
+p
+  strong Categoria:
+  = @producto.categoria
+
+= link_to 'Edit', edit_producto_path(@producto)
+'|
+= link_to 'Back', productos_path

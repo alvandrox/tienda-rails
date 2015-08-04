@@ -1,0 +1,23 @@
+.row
+  .col-sm-8
+    h1
+      i.fa.fa-building
+      |  Marcas
+  .col-sm-4
+    = link_to 'Crear Marca', new_marca_path, class: 'btn btn-primary crear-marca'
+.row
+  - @marcas.each do |marca|
+    .col-sm-4
+      .marcas.well
+        p = marca.nombre
+        p
+          i.fa.fa-building
+          |  
+          = marca.proveedor.nombre
+        
+        = link_to marca, class: 'btn btn-default' do
+          i.fa.fa-eye
+          |  ver
+
+        = link_to 'Editar', edit_marca_path(marca)
+        = link_to 'Eliminar', marca, data: {:confirm => 'Estas Segur@'}, :method => :delete

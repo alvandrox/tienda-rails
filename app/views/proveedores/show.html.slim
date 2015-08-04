@@ -1,5 +1,3 @@
-p#notice = notice
-
 p
   strong Nombre:
   = @proveedor.nombre
@@ -21,6 +19,15 @@ p
 p
   strong Url:
   = @proveedor.url
+
+p
+  strong Marca:
+  ul
+    li == render 'form_marca'
+    - @proveedor.marcas.each do |marca|
+      li
+        = marca.nombre
+
 
 = link_to 'Editar', edit_proveedor_path(@proveedor)
 '|
