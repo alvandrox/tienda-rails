@@ -1,4 +1,9 @@
 class ColoresController < ApplicationController
+
+  def index
+    @colores = Color.all
+  end
+  
   def create
     marca = Marca.find params[:marca_id]
     color = Color.new color_params.merge! marca_id: marca.id

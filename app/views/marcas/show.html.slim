@@ -6,27 +6,40 @@ p
   = @marca.proveedor.nombre
 
 .row
+
   .col-sm-6
     strong Color:
     = render 'form_color'
-    - @marca.colores.each do |color|
-      .col-sm-6
-        p
-          = color.nombre
-      .col-sm-6
-        p
-          span.color style=("background-color: #{color.codigo};")
+    hr
+    table.table.table-hover.table-condensed.table-striped
+      thead
+        tr
+          th Nombre
+          th Color
+      tbody
+      - @marca.colores.each do |color|
+        tr
+          td
+            = color.nombre
+          td
+            span.color style=("background-color: #{color.codigo};")
         
   .col-sm-6
     strong Productos
     = render 'form_producto'
-    -@marca.productos.each do |producto|
-      .col-sm-6
-        p
-          = producto.codigo
-      .col-sm-6
-        p
-          = producto.descripcion
+    hr
+    table.table.table-hover.table-condensed.table-striped
+      thead
+        tr
+          th Nombre
+          th Color
+      tbody
+      -@marca.productos.each do |producto|
+        tr
+          td
+            = producto.codigo
+          td
+            = producto.descripcion
 
 
 = link_to 'Editar', edit_marca_path(@marca), class: 'btn btn-default'
