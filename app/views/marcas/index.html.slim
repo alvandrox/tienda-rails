@@ -14,7 +14,12 @@
           i.fa.fa-building
           |  
           = marca.proveedor.nombre
-        
+
+        p
+          ' Productos acosiados
+          span.badge
+            = @cantidad_productos
+
         = link_to marca, class: 'btn btn-default' do
           i.fa.fa-eye
           |  ver

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :marcas do
-    resources :colores, only: [:create]
     resources :productos, only: [:create]
   end
 

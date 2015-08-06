@@ -2,6 +2,7 @@ class MarcasController < ApplicationController
 
   def index
     @marcas = Marca.all
+    @cantidad_productos = Producto.count
   end
 
   def show

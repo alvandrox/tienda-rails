@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Nombre:
+  = @color.nombre
+p
+  strong Codigo:
+  = @color.codigo
+
+= link_to 'Edit', edit_color_path(@color)
+'|
+= link_to 'Back', colores_path

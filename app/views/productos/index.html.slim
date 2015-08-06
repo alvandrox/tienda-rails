@@ -16,7 +16,7 @@ table
       tr
         td = producto.codigo
         td = producto.descripcion
-        td = producto.marca
+        td = producto.marca.nombre
         td = producto.categoria
         td = link_to 'Show', producto
         td = link_to 'Edit', edit_producto_path(producto)

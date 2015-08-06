@@ -8,23 +8,6 @@ p
 .row
 
   .col-sm-6
-    strong Color:
-    = render 'form_color'
-    hr
-    table.table.table-hover.table-condensed.table-striped
-      thead
-        tr
-          th Nombre
-          th Color
-      tbody
-      - @marca.colores.each do |color|
-        tr
-          td
-            = color.nombre
-          td
-            span.color style=("background-color: #{color.codigo};")
-        
-  .col-sm-6
     strong Productos
     = render 'form_producto'
     hr
@@ -32,7 +15,7 @@ p
       thead
         tr
           th Nombre
-          th Color
+          th Descripcion
       tbody
       -@marca.productos.each do |producto|
         tr

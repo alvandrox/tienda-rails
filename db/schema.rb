@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804205014) do
+ActiveRecord::Schema.define(version: 20150806153434) do
 
   create_table "categorias", force: :cascade do |t|
     t.string   "nombre"
@@ -22,12 +22,9 @@ ActiveRecord::Schema.define(version: 20150804205014) do
   create_table "colores", force: :cascade do |t|
     t.string   "nombre"
     t.string   "codigo"
-    t.integer  "marca_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "colores", ["marca_id"], name: "index_colores_on_marca_id"
 
   create_table "marcas", force: :cascade do |t|
     t.string   "nombre"
