@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806153434) do
+ActiveRecord::Schema.define(version: 20150806164041) do
 
   create_table "categorias", force: :cascade do |t|
     t.string   "nombre"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20150806153434) do
     t.string   "codigo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "colores_productos", id: false, force: :cascade do |t|
+    t.integer "color_id",    null: false
+    t.integer "producto_id", null: false
   end
 
   create_table "marcas", force: :cascade do |t|
@@ -47,6 +52,11 @@ ActiveRecord::Schema.define(version: 20150806153434) do
   add_index "productos", ["categoria_id"], name: "index_productos_on_categoria_id"
   add_index "productos", ["marca_id"], name: "index_productos_on_marca_id"
 
+  create_table "productos_tallas", id: false, force: :cascade do |t|
+    t.integer "producto_id", null: false
+    t.integer "talla_id",    null: false
+  end
+
   create_table "proveedores", force: :cascade do |t|
     t.string   "nombre"
     t.string   "razon_social"
@@ -57,6 +67,12 @@ ActiveRecord::Schema.define(version: 20150806153434) do
     t.string   "url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "tallas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "usuarios", force: :cascade do |t|

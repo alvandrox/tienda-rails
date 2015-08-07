@@ -1,12 +1,19 @@
-h1 Listing productos
+.row
+  .col-sm-8
+    h1
+      i.fa.fa-building
+      |  Productos
+  .col-sm-4
+    = link_to 'Crear Producto', new_producto_path, class: 'btn btn-primary boton-crear'
 
-table
+table.table.table-hover.table-condensed.table-striped.table-bordered
   thead
     tr
       th Codigo
       th Descripcion
       th Marca
       th Categoria
+      th Colores
       th
       th
       th
@@ -16,12 +23,9 @@ table
       tr
         td = producto.codigo
         td = producto.descripcion
-        td = producto.marca.nombre
-        td = producto.categoria
-        td = link_to 'Show', producto
-        td = link_to 'Edit', edit_producto_path(producto)
-        td = link_to 'Destroy', producto, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Producto', new_producto_path
+        td = producto.marca.nombre if producto.marca
+        td = producto.categoria.nombre if producto.categoria
+        td = producto.colores.size
+        td = link_to 'Ver', producto
+        td = link_to 'Editar', edit_producto_path(producto)
+        td = link_to 'Eliminar', producto, data: {:confirm => 'Are you sure?'}, :method => :delete

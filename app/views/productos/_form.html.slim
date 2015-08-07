@@ -1,21 +1,54 @@
 = form_for @producto do |f|
   - if @producto.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@producto.errors.count, "error")} prohibited this producto from being saved:"
-      ul
-        - @producto.errors.full_messages.each do |message|
-          li = message
+    - @producto.errors.full_messages.each do |message|
+      /li = message
+      = content_tag :div, message, class: "alert alert-danger"
+  div
+    /! Nav tabs
+    ul.nav.nav-tabs role="tablist"
+      li.active role="presentation"
+        a aria-controls="codigo" data-toggle="tab" href="#codigo" role="tab"  Codigo
+      li role="presentation"
+        a aria-controls="colores" data-toggle="tab" href="#colores" role="tab"  Colores
+      li role="presentation"
+        a aria-controls="tallas" data-toggle="tab" href="#tallas" role="tab"  Tallas
+      li role="presentation"
+        a aria-controls="settings" data-toggle="tab" href="#settings" role="tab"  Settings
+    /! Tab panes
+    .tab-content
+      #codigo.tab-pane.active role="tabpanel"
+        .row
+          .col-sm-6
+            .form-group
+              = f.label :codigo
+              = f.text_field :codigo, class: 'form-control',placeholder: 'Ingrese código de producto', autofocus: 'autofocus'
 
-  .field
-    = f.label :codigo
-    = f.text_field :codigo
-  .field
-    = f.label :descripcion
-    = f.text_field :descripcion
-  .field
-    = f.label :marca
-    = f.text_field :marca
-  .field
-    = f.label :categoria
-    = f.text_field :categoria
-  .actions = f.submit
+          .col-sm-6
+            .form-group
+              = f.label :descripcion
+              = f.text_field :descripcion, class: 'form-control', placeholder: 'Ingrese Descripcion ej: "Calcetin de Lana mujer"'
+
+        .row
+          .col-sm-6
+            .form-group
+              = f.label :marca
+              = f.collection_select :marca_id, Marca.all, :id, :nombre, {prompt: "Seleccione una Marca"}, {class: "form-control"}
+
+          .col-sm-6
+            .form-group
+              = f.label :categoria
+              = f.collection_select :categoria_id, Categoria.all, :id, :nombre, {prompt: "Seleccione una Categoria"}, {class: "form-control"}
+      #colores.tab-pane role="tabpanel"
+        .row
+          = hidden_field_tag 'producto[color_ids][]', nil
+          - Color.order(nombre: :asc).each do |color|
+            .col-sm-2
+              .checkbox
+                = label_tag dom_id(color) do
+                  = check_box_tag 'producto[color_ids][]', color.id, @producto.color_ids.include?(color.id), id: dom_id(color)
+                  = color.nombre
+                  span.color style=("background-color: #{color.codigo};")
+      #tallas.tab-pane role="tabpanel"  ...
+      #settings.tab-pane role="tabpanel"  ...
+
+  = f.submit class: 'btn'

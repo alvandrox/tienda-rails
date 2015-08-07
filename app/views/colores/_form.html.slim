@@ -6,10 +6,10 @@
         - @color.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = f.label :nombre
-    = f.text_field :nombre
-  .field
+    = f.text_field :nombre, class: 'form-control'
+  .form-group
     = f.label :codigo
-    = f.text_field :codigo
-  .actions = f.submit
+    = f.color_field :codigo, class: 'form-control'
+  = f.submit class: 'btn'

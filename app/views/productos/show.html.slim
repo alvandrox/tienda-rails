@@ -1,5 +1,3 @@
-p#notice = notice
-
 p
   strong Codigo:
   = @producto.codigo
@@ -12,6 +10,9 @@ p
 p
   strong Categoria:
   = @producto.categoria
+
+- @producto.colores.each do |colores|
+  = colores.nombre
 
 = link_to 'Edit', edit_producto_path(@producto)
 '|

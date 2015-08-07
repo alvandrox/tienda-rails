@@ -1,19 +1,15 @@
 .row
   .col-sm-8
     h1
-      i.fa.fa-building
+      i.fa.fa-adjust
       |  Colores
   .col-sm-4
-    = link_to 'Crear Color', new_color_path, class: 'btn btn-primary crear-color'
+    = link_to 'Crear Color', new_color_path, class: 'btn btn-primary boton-crear'
 .row
   - @colores.each do |color|
     .col-sm-2
       .colores.well.well-sm
         p = color.nombre
-        p
-          i.fa.fa-building
-          |  
-          = color.marca.nombre
 
         span.center-block.color style=("background-color: #{color.codigo};")
 

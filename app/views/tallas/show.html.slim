@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Nombre:
+  = @talla.nombre
+
+= link_to 'Edit', edit_talla_path(@talla)
+'|
+= link_to 'Back', tallas_path

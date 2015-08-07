@@ -4,7 +4,7 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
+    @productos = Producto.includes(:colores)
   end
 
   # GET /productos/1
@@ -15,6 +15,7 @@ class ProductosController < ApplicationController
   # GET /productos/new
   def new
     @producto = Producto.new
+    #@colores = Color.all
   end
 
   # GET /productos/1/edit
@@ -24,26 +25,26 @@ class ProductosController < ApplicationController
   # POST /productos
   # POST /productos.json
   def create
-    marca = Marca.find params[:marca_id]
-    producto = Producto.new producto_params.merge! marca_id: marca.id
-
-    if producto.save
-      redirect_to marca, notice: 'Producto se a guardado Exitosamente'
-    else
-      redirect_to marca, alert: 'A ocurrido un error Producto no se a guardado'
-    end
-
-    # @producto = Producto.new(producto_params)
+    # marca = Marca.find params[:marca_id]
+    # producto = Producto.new producto_params.merge! marca_id: marca.id
     #
-    # respond_to do |format|
-    #   if @producto.save
-    #     format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
-    #     format.json { render :show, status: :created, location: @producto }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @producto.errors, status: :unprocessable_entity }
-    #   end
+    # if producto.save
+    #   redirect_to marca, notice: 'Producto se a guardado Exitosamente'
+    # else
+    #   redirect_to marca, alert: 'A ocurrido un error Producto no se a guardado'
     # end
+
+    @producto = Producto.new(producto_params)
+
+    respond_to do |format|
+      if @producto.save
+        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.json { render :show, status: :created, location: @producto }
+      else
+        format.html { render :new }
+        format.json { render json: @producto.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /productos/1
@@ -78,6 +79,6 @@ class ProductosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:codigo, :descripcion, :marca_id, :categoria_id)
+      params.require(:producto).permit(:codigo, :descripcion, :marca_id, :categoria_id, {color_ids: []})
     end
 end
