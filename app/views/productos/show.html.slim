@@ -1,19 +1,24 @@
-p
+p.lead
   strong Codigo:
   = @producto.codigo
-p
+p.lead
   strong Descripcion:
   = @producto.descripcion
-p
+p.lead
   strong Marca:
   = @producto.marca
-p
+p.lead
   strong Categoria:
   = @producto.categoria
 
-- @producto.colores.each do |colores|
-  = colores.nombre
+.row
+  .col-sm-6
+    .row
+      - @producto.colores.each do |color|
+        .col-sm-4
+          .well.well-sm
+            .text-center.lead = color.nombre
+            span.center-block.color style=("background-color: #{color.codigo};")
 
-= link_to 'Edit', edit_producto_path(@producto)
-'|
-= link_to 'Back', productos_path
+= link_to 'Editar', edit_producto_path(@producto), class: 'btn'
+= link_to 'Atras', productos_path, class: 'btn'
