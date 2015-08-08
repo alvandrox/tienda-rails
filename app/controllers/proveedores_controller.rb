@@ -4,7 +4,7 @@ class ProveedoresController < ApplicationController
   # GET /proveedores
   # GET /proveedores.json
   def index
-    @proveedores = Proveedor.all
+    @proveedores = Proveedor.includes(:marcas)
   end
 
   # GET /proveedores/1

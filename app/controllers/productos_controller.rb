@@ -1,39 +1,23 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
-  # GET /productos
-  # GET /productos.json
   def index
-    @productos = Producto.includes(:colores)
+    @productos = Producto.includes(:colores, :marca)
   end
 
-  # GET /productos/1
-  # GET /productos/1.json
   def show
   end
 
-  # GET /productos/new
   def new
     @producto = Producto.new
-    #@colores = Color.all
+    @colores = Color.includes(:productos)
   end
 
-  # GET /productos/1/edit
   def edit
+    @colores = Color.includes(:productos)
   end
 
-  # POST /productos
-  # POST /productos.json
   def create
-    # marca = Marca.find params[:marca_id]
-    # producto = Producto.new producto_params.merge! marca_id: marca.id
-    #
-    # if producto.save
-    #   redirect_to marca, notice: 'Producto se a guardado Exitosamente'
-    # else
-    #   redirect_to marca, alert: 'A ocurrido un error Producto no se a guardado'
-    # end
-
     @producto = Producto.new(producto_params)
 
     respond_to do |format|
@@ -47,8 +31,6 @@ class ProductosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /productos/1
-  # PATCH/PUT /productos/1.json
   def update
     respond_to do |format|
       if @producto.update(producto_params)
@@ -61,8 +43,6 @@ class ProductosController < ApplicationController
     end
   end
 
-  # DELETE /productos/1
-  # DELETE /productos/1.json
   def destroy
     @producto.destroy
     respond_to do |format|
@@ -72,12 +52,10 @@ class ProductosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_producto
       @producto = Producto.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
       params.require(:producto).permit(:codigo, :descripcion, :marca_id, :categoria_id, {color_ids: []})
     end
