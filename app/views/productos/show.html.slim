@@ -11,20 +11,30 @@ h4 Producto
   .col-sm-3
     p.lead
       strong Marca:
-      = @producto.marca
+      = @producto.marca.nombre if @producto.marca
   .col-sm-3
     p.lead
       strong Categoria:
-      = @producto.categoria
+      = @producto.categoria.nombre if @producto.categoria
 
 .row
   .col-sm-6
+    h5 Colores
     .row
       - @producto.colores.each do |color|
         .col-sm-4
           .well.well-sm
             .text-center.lead = color.nombre
             span.center-block.color style=("background-color: #{color.codigo};")
+
+  .col-sm-6
+    h5 Tallas
+    .row
+      - @producto.tallas.each do |talla|
+        .col-sm-4
+          .well.well-sm
+            .text-center.lead = talla.nombre
+            /span.center-block.color style=("background-color: #{color.codigo};")
 
 = link_to 'Editar', edit_producto_path(@producto), class: 'btn'
 = link_to 'Atras', productos_path, class: 'btn'

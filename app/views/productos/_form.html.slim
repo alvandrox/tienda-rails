@@ -49,7 +49,17 @@
                   = check_box_tag 'producto[color_ids][]', color.id, @producto.color_ids.include?(color.id), id: dom_id(color)
                   = color.nombre
                   span.color style=("background-color: #{color.codigo};")
-      #tallas.tab-pane role="tabpanel"  ...
+      #tallas.tab-pane role="tabpanel"
+        .row
+          = hidden_field_tag 'producto[talla_ids][]', nil
+          /- @colores.each do |color|
+          - Talla.includes(:productos).order(nombre: :asc).each do |talla|
+            .col-sm-2
+              .checkbox
+                = label_tag dom_id(talla) do
+                  = check_box_tag 'producto[talla_ids][]', talla.id, @producto.talla_ids.include?(talla.id), id: dom_id(talla)
+                  = talla.nombre
+                  /span.color style=("background-color: #{color.codigo};")
       #settings.tab-pane role="tabpanel"  ...
 
   = f.submit class: 'btn'

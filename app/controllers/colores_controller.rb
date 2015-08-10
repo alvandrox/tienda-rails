@@ -4,7 +4,7 @@ class ColoresController < ApplicationController
   # GET /colores
   # GET /colores.json
   def index
-    @colores = Color.all
+    @colores = Color.order(:nombre)
   end
 
   # GET /colores/1
@@ -28,7 +28,7 @@ class ColoresController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html { redirect_to @color, notice: 'Color was successfully created.' }
+        format.html { redirect_to @color, notice: 'Color se ha creado.' }
         format.json { render :show, status: :created, location: @color }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ColoresController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html { redirect_to @color, notice: 'Color was successfully updated.' }
+        format.html { redirect_to @color, notice: 'Color se ha actualizado.' }
         format.json { render :show, status: :ok, location: @color }
       else
         format.html { render :edit }

@@ -2,7 +2,7 @@ class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
   def index
-    @productos = Producto.includes(:colores, :marca)
+    @productos = Producto.includes(:colores, :tallas, :marca)
   end
 
   def show
@@ -22,7 +22,7 @@ class ProductosController < ApplicationController
 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to @producto, notice: 'Producto se ha creado.' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ProductosController < ApplicationController
   def update
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to @producto, notice: 'Producto se ha actualizado.' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }
@@ -57,6 +57,6 @@ class ProductosController < ApplicationController
     end
 
     def producto_params
-      params.require(:producto).permit(:codigo, :descripcion, :marca_id, :categoria_id, {color_ids: []})
+      params.require(:producto).permit(:codigo, :descripcion, :marca_id, :categoria_id, {color_ids: []}, {talla_ids: []})
     end
 end

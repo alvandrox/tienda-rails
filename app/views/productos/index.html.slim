@@ -14,6 +14,7 @@ table.table.table-hover.table-condensed.table-striped.table-bordered
       th Marca
       th Categoria
       th Colores
+      th tallas
       th
       th
       th
@@ -26,6 +27,7 @@ table.table.table-hover.table-condensed.table-striped.table-bordered
         td = producto.marca.nombre if producto.marca
         td = producto.categoria.nombre if producto.categoria
         td = producto.colores.size
+        td = producto.tallas.size
         td = link_to 'Ver', producto
         td = link_to 'Editar', edit_producto_path(producto)
         td = link_to 'Eliminar', producto, data: {:confirm => 'Are you sure?'}, :method => :delete
