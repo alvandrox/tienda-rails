@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ean: MyString
+  producto_id: 
+  color_id: 
+  talla_id: 
+  precio_costo: 1
+  precio_venta: 1
+  stock: 1
+
+two:
+  ean: MyString
+  producto_id: 
+  color_id: 
+  talla_id: 
+  precio_costo: 1
+  precio_venta: 1
+  stock: 1

@@ -31,4 +31,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.singular(/es$/, '')
 
   inflect.irregular('el', 'los')
+  inflect.irregular('lo', 'los')
 end

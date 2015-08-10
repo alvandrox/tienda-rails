@@ -1,0 +1,33 @@
+= form_for @articulo do |f|
+  - if @articulo.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@articulo.errors.count, "error")} prohibited this articuel from being saved:"
+      ul
+        - @articulo.errors.full_messages.each do |message|
+          li = message
+
+  .row
+    .form-group.col-sm-3
+      = f.label :ean
+      = f.text_field :ean, class: 'form-control'
+    .form-group.col-sm-3
+      = f.label :producto
+      = f.text_field :producto, class: 'form-control'
+    .form-group.col-sm-3
+      = f.label :color
+      = f.text_field :color, class: 'form-control'
+    .form-group.col-sm-3
+      = f.label :talla
+      = f.text_field :talla, class: 'form-control'
+
+  .row
+    .form-group.col-sm-3
+      = f.label :precio_costo
+      = f.number_field :precio_costo, class: 'form-control'
+    .form-group.col-sm-3
+      = f.label :precio_venta
+      = f.number_field :precio_venta, class: 'form-control'
+    .form-group.col-sm-3
+      = f.label :stock
+      = f.number_field :stock, class: 'form-control'
+  =f.submit class: 'btn'

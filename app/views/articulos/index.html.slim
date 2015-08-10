@@ -1,0 +1,34 @@
+h4 Articulos
+= link_to new_articulo_path do
+  'Crear Articulo
+table.table.table-bordered.table-condensed.table-striped.table-hover
+  thead
+    tr
+      th Ean
+      th Producto
+      th Color
+      th Talla
+      th Precio costo
+      th Precio venta
+      th Stock
+      th
+      th
+      th
+
+  tbody
+    - @articulos.each do |articulo|
+      tr
+        td = articulo.ean
+        td = articulo.producto
+        td = articulo.color
+        td = articulo.talla
+        td = articulo.precio_costo
+        td = articulo.precio_venta
+        td = articulo.stock
+        td = link_to 'Show', articulo
+        td = link_to 'Edit', edit_articulo_path(articulo)
+        td = link_to 'Destroy', articulo, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+

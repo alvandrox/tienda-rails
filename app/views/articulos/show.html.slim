@@ -1,0 +1,25 @@
+p
+  strong Ean:
+  = @articulo.ean
+p
+  strong Producto:
+  = @articulo.producto
+p
+  strong Color:
+  = @articulo.color
+p
+  strong Talla:
+  = @articulo.talla
+p
+  strong Precio costo:
+  = @articulo.precio_costo
+p
+  strong Precio venta:
+  = @articulo.precio_venta
+p
+  strong Stock:
+  = @articulo.stock
+
+= link_to 'Edit', edit_articulo_path(@articulo)
+'|
+= link_to 'Back', articulos_path

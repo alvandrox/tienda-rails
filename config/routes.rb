@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-
   devise_for :usuarios
 
   root 'proveedores#index'
 
   resources :categorias
-  resources :productos
   resources :colores
   resources :tallas
+  resources :articulos
 
   resources :proveedores do
     resources :marcas, only: [:create]
@@ -16,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :marcas do
     resources :productos, only: [:create]
+  end
+
+  resources :productos do
+    resources :articulos, only: [:create]
   end
 
 end

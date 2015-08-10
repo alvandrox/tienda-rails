@@ -44,6 +44,14 @@ nav.navbar.navbar-inverse
         li class=('active' if current_page?(categorias_path))
           = link_to categorias_path do
             'Categorias
+
+        li class=('active' if current_page?(productos_path))
+          = link_to productos_path do
+            'Productos
+
+        li class=('active' if current_page?(articulos_path))
+          = link_to articulos_path do
+            'Articulos
         
     /! /.navbar-collapse
   /! /.container-fluid
