@@ -2,7 +2,7 @@ class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
 
   def index
-    @productos = Producto.includes(:colores, :tallas, :marca)
+    @productos = Producto.includes(:colores, :tallas, :marca, :categoria)
   end
 
   def show

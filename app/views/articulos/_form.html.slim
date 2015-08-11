@@ -10,15 +10,17 @@
     .form-group.col-sm-3
       = f.label :ean
       = f.text_field :ean, class: 'form-control'
+    / .form-group.col-sm-3#disabledTextInput
+    /   = f.label :producto
+    /   = f.text_field :producto, class: 'form-control'
+
     .form-group.col-sm-3
-      = f.label :producto
-      = f.text_field :producto, class: 'form-control'
+      = f.label :color_id, :Color
+      = collection_select :articulo, :color_id, @articulo.producto.colores, :id, :nombre, {prompt: "Seleccione un Color"}, {class: "form-control"}
+    
     .form-group.col-sm-3
-      = f.label :color
-      = f.text_field :color, class: 'form-control'
-    .form-group.col-sm-3
-      = f.label :talla
-      = f.text_field :talla, class: 'form-control'
+      = f.label :talla_id, :Talla
+      = collection_select :articulo, :talla_id, @articulo.producto.tallas, :id, :nombre, {prompt: "Seleccione una Talla"}, {class: "form-control"}
 
   .row
     .form-group.col-sm-3

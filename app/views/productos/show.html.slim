@@ -35,6 +35,11 @@ h4 Producto
           .well.well-sm
             .text-center.lead = talla.nombre
             /span.center-block.color style=("background-color: #{color.codigo};")
+.row
+  .col-sm-12
+    strong Desglose Articulos:
+    == render 'form_articulo'
+    == render 'index_articulo'
 
 = link_to 'Editar', edit_producto_path(@producto), class: 'btn'
 = link_to 'Atras', productos_path, class: 'btn'

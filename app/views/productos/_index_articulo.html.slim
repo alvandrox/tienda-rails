@@ -1,0 +1,18 @@
+table.table
+  thead
+    tr
+      th
+        'Codigo de Barra
+      th
+        'Color
+      th
+        'Talla
+  tbody
+    - @producto.articulos.each do |articulo|
+      tr
+        td
+          = articulo.ean
+        td
+          = articulo.color.nombre if articulo.color
+        td
+          = articulo.talla.nombre if articulo.talla

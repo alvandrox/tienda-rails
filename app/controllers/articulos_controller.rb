@@ -4,7 +4,7 @@ class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
   def index
-    @articulos = Articulo.all
+    @articulos = Articulo.includes(:producto)
   end
 
   # GET /articulos/1
@@ -24,11 +24,12 @@ class ArticulosController < ApplicationController
   # POST /articulos
   # POST /articulos.json
   def create
-    @articulo = Articulo.new(articulo_params)
+    producto = Producto.find params[:producto_id]
+    @articulo = Articulo.new articulo_params.merge! producto_id: producto.id
 
     respond_to do |format|
       if @articulo.save
-        format.html { redirect_to @articulo, notice: 'Articulo was successfully created.' }
+        format.html { redirect_to producto, notice: 'Articulo se ha creado correctamente.' }
         format.json { render :show, status: :created, location: @articulo }
       else
         format.html { render :new }
