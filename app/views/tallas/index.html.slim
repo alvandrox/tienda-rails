@@ -1,6 +1,6 @@
 h4 Tallas
-
-table
+= link_to 'crear Talla', new_talla_path
+table.table
   thead
     tr
       th Nombre
@@ -15,7 +15,3 @@ table
         td = link_to 'Show', talla
         td = link_to 'Edit', edit_talla_path(talla)
         td = link_to 'Destroy', talla, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Talla', new_talla_path
