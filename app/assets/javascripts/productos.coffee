@@ -18,11 +18,11 @@ $('#form-articulo').keyup ->
 
   $('.iva-pagar').text('Iva a Pagar: $' + iva_pagar.toFixed(2))
   $('.ganancia').text('Ganancia: $' + ganancia.toFixed(2))
-  $('input#precio-venta').attr('placeholder', 'Precio sugerido: ' + venta_sugerido)
+  $('input#precio-venta').attr('placeholder', 'Precio sugerido: ~$' + venta_sugerido)
 
   # Este ciclo es para cuando el resultado es infinito
   if isFinite(porcentaje_ganancia)
-    $('.porcentaje-ganancia').text('Ganancia: %'+ porcentaje_ganancia.toFixed(2))
+    $('.porcentaje-ganancia').text('Ganancia: %' + porcentaje_ganancia.toFixed(2))
   else
     $('.porcentaje-ganancia').text('Debe ingresar Precio de Venta')
 
