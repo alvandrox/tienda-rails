@@ -2,7 +2,7 @@ class ColoresController < ApplicationController
   before_action :set_color, only: [:show, :edit, :update, :destroy]
 
   def index
-    @colores = Color.order(:nombre)
+    @colores = Color.includes(:productos).order(:nombre)
   end
 
   def show

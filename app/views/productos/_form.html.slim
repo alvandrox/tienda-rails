@@ -41,7 +41,6 @@
       #colores.tab-pane role="tabpanel"
         .row
           = hidden_field_tag 'producto[color_ids][]', nil
-          /- @colores.each do |color|
           - Color.includes(:productos).order(nombre: :asc).each do |color|
             .col-sm-2
               .checkbox
