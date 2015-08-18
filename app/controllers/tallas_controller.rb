@@ -1,28 +1,20 @@
 class TallasController < ApplicationController
   before_action :set_talla, only: [:show, :edit, :update, :destroy]
 
-  # GET /tallas
-  # GET /tallas.json
   def index
     @tallas = Talla.all
   end
 
-  # GET /tallas/1
-  # GET /tallas/1.json
   def show
   end
 
-  # GET /tallas/new
   def new
     @talla = Talla.new
   end
 
-  # GET /tallas/1/edit
   def edit
   end
 
-  # POST /tallas
-  # POST /tallas.json
   def create
     @talla = Talla.new(talla_params)
 
@@ -37,8 +29,6 @@ class TallasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tallas/1
-  # PATCH/PUT /tallas/1.json
   def update
     respond_to do |format|
       if @talla.update(talla_params)
@@ -51,8 +41,6 @@ class TallasController < ApplicationController
     end
   end
 
-  # DELETE /tallas/1
-  # DELETE /tallas/1.json
   def destroy
     @talla.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class TallasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_talla
       @talla = Talla.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def talla_params
       params.require(:talla).permit(:nombre)
     end

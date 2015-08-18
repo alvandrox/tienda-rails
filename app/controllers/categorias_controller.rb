@@ -1,28 +1,20 @@
 class CategoriasController < ApplicationController
   before_action :set_categoria, only: [:show, :edit, :update, :destroy]
 
-  # GET /categorias
-  # GET /categorias.json
   def index
     @categorias = Categoria.all
   end
 
-  # GET /categorias/1
-  # GET /categorias/1.json
   def show
   end
 
-  # GET /categorias/new
   def new
     @categoria = Categoria.new
   end
 
-  # GET /categorias/1/edit
   def edit
   end
 
-  # POST /categorias
-  # POST /categorias.json
   def create
     @categoria = Categoria.new(categoria_params)
 
@@ -37,8 +29,6 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categorias/1
-  # PATCH/PUT /categorias/1.json
   def update
     respond_to do |format|
       if @categoria.update(categoria_params)
@@ -51,8 +41,6 @@ class CategoriasController < ApplicationController
     end
   end
 
-  # DELETE /categorias/1
-  # DELETE /categorias/1.json
   def destroy
     @categoria.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class CategoriasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_categoria
       @categoria = Categoria.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def categoria_params
       params.require(:categoria).permit(:nombre)
     end
