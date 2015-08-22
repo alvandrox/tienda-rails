@@ -1,0 +1,12 @@
+= form_for @sin_boleta do |f|
+  - if @sin_boleta.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@sin_boleta.errors.count, "error")} prohibited this sin_boleta from being saved:"
+      ul
+        - @sin_boleta.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :venta
+    = f.text_field :venta
+  .actions = f.submit

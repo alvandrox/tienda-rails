@@ -1,0 +1,21 @@
+h1 Listing facturas
+
+table
+  thead
+    tr
+      th Venta
+      th
+      th
+      th
+
+  tbody
+    - @facturas.each do |factura|
+      tr
+        td = factura.venta
+        td = link_to 'Show', factura
+        td = link_to 'Edit', edit_factura_path(factura)
+        td = link_to 'Destroy', factura, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Factura', new_factura_path

@@ -1,0 +1,9 @@
+= form_for @venta do |f|
+  - if @venta.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@venta.errors.count, "error")} prohibited this venta from being saved:"
+      ul
+        - @venta.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

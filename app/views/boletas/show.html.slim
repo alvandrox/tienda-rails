@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Venta:
+  = @boleta.venta
+
+= link_to 'Edit', edit_boleta_path(@boleta)
+'|
+= link_to 'Back', boletas_path

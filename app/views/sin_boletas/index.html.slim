@@ -1,0 +1,21 @@
+h1 Listing sin_boletas
+
+table
+  thead
+    tr
+      th Venta
+      th
+      th
+      th
+
+  tbody
+    - @sin_boletas.each do |sin_boleta|
+      tr
+        td = sin_boleta.venta
+        td = link_to 'Show', sin_boleta
+        td = link_to 'Edit', edit_sin_boleta_path(sin_boleta)
+        td = link_to 'Destroy', sin_boleta, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Sin boleta', new_sin_boleta_path

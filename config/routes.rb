@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :sin_boletas
+  resources :facturas
+  resources :boletas
+  resources :ventas
   devise_for :usuarios
 
   root 'proveedores#index'

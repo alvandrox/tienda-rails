@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Venta:
+  = @factura.venta
+
+= link_to 'Edit', edit_factura_path(@factura)
+'|
+= link_to 'Back', facturas_path

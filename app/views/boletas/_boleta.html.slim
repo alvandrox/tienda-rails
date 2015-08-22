@@ -1,0 +1,8 @@
+      tr
+        td = boleta.id
+        td = boleta.fecha.strftime('%d-%m-%Y')
+        td.precio_boleta = boleta.precio
+        /td = link_to 'Show', boleta
+        td = link_to 'Editar', edit_boleta_path(boleta), class: 'btn btn-danger'
+        
+        /td = link_to 'Destroy', boleta, data: {:confirm => 'Are you sure?'}, :method => :delete

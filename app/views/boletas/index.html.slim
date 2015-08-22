@@ -1,0 +1,25 @@
+h4 Boletas
+= link_to 'New Boleta', new_boleta_path
+#sumadia
+
+#cantidad
+
+table.table
+  thead
+    tr
+      th Nº Boleta
+      th Fecha
+      th Precio
+      th
+      th
+      th
+
+  tbody
+    tr
+      td
+      td
+        = form_tag boletas_path, :method => 'get', id: "ventas_search", class: 'form-inline' do
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'ingrese fecha ej yyyy-mm-dd'
+          = submit_tag "Buscar", class: 'btn'
+    - @boletas.each do |boleta|
+    = render @boletas
