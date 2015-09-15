@@ -3,8 +3,10 @@ class Boleta < ActiveRecord::Base
 
 
   def self.search(search)
-    #where('id LIKE ?', "%#{search}%")
-    where('id LIKE ? OR fecha LIKE ? OR precio LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    where('fecha LIKE ?', "%#{search}%")
+
+    # Esta Consulta busca en todos los campos
+    #where('id LIKE ? OR fecha LIKE ? OR precio LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     #where('precio LIKE ?', "%#{search}%")
   end
 
